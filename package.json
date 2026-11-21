@@ -1,0 +1,21 @@
+{
+  "name": "huashang-italia-advisor",
+  "version": "0.1.0",
+  "private": true,
+  "description": "面向在意华人老板的法律与财税 AI 咨询：官网抓取 + 本地知识库 + Claude",
+  "type": "module",
+  "scripts": {
+    "crawl": "node --disable-warning=ExperimentalWarning src/crawl.mjs",
+    "start": "node --disable-warning=ExperimentalWarning src/server.mjs",
+    "ask": "node --disable-warning=ExperimentalWarning src/ask.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/claude-agent-sdk": "^0.3.330",
+    "cheerio": "^1.2.0",
+    "dompurify": "^3.2.0",
+    "express": "^5.3.0",
+    "marked": "^15.0.0",
+    "unpdf": "^2.2.1",
+    "zod": "^4.6.7"
+  }
+}

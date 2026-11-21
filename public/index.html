@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>华商意大利法税顾问</title>
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="app.css">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+<div id="app">
+  <div class="shell">
+    <aside class="side" id="side">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 7h14M5 7l-3 7a3.5 3.5 0 0 0 6 0L5 7zm14 0l-3 7a3.5 3.5 0 0 0 6 0l-3-7zM8 21h8"/></svg>
+        </div>
+        <div>
+          <div class="brand-name">华商意大利法税顾问</div>
+          <div class="brand-sub">法律 · 税务 · 用工 · 居留</div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary new-chat" id="newChat">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        新咨询
+      </button>
+
+      <div class="side-scroll">
+        <section class="card kb-card">
+          <div class="card-head">
+            <span class="card-title">本地知识库</span>
+            <button class="btn btn-sm" id="crawlBtn">更新</button>
+          </div>
+          <div class="kb-total"><span class="tabular" id="kbTotal">–</span><small>篇官方文件</small></div>
+          <div class="kb-meta" id="kbMeta">正在读取…</div>
+          <ul class="kb-list" id="kbList"></ul>
+        </section>
+
+        <p class="side-note">
+          回答由 AI 结合意大利官方资料生成，仅供了解情况和准备问题使用，不能替代持牌律师（avvocato）或会计师（commercialista）的意见。
+        </p>
+      </div>
+
+      <div class="side-foot">
+        <span class="muted" id="modelName"></span>
+        <button class="icon-btn" id="themeBtn" title="切换深色 / 浅色" aria-label="切换深色或浅色">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="icon-btn menu-btn" id="menuBtn" aria-label="打开侧栏">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+        <span class="topbar-title">华商意大利法税顾问</span>
+      </header>
+
+      <div class="thread" id="thread">
+        <div class="thread-inner" id="threadInner">
+          <section class="welcome" id="welcome">
+            <h1>在意大利做生意，<br>有事先问清楚。</h1>
+            <p class="welcome-sub">用中文提问。我会查阅意大利税务局、社保局、劳动部等官方网站的最新文件，并联网核实，告诉你这件事是什么、该怎么办、哪天之前要办完。</p>
+            <div class="starters" id="starters"></div>
+          </section>
+        </div>
+      </div>
+
+      <form class="composer" id="composer" autocomplete="off">
+        <div class="composer-box">
+          <textarea id="input" rows="1" placeholder="描述你的情况或问题，例如：我在米兰开餐馆，想再雇两个服务员，需要办什么手续？" aria-label="输入问题"></textarea>
+          <button type="submit" class="send" id="send" aria-label="发送">
+            <svg class="ico-send" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+            <svg class="ico-stop" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="4" y="4" width="16" height="16" rx="3"/></svg>
+          </button>
+        </div>
+        <div class="composer-hint">Enter 发送，Shift + Enter 换行。请不要输入税号、证件号等敏感信息。</div>
+      </form>
+    </main>
+  </div>
+  <div class="scrim" id="scrim"></div>
+</div>
+<div class="toast-host" id="toasts"></div>
+<script src="vendor/marked.js"></script>
+<script src="vendor/purify.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
